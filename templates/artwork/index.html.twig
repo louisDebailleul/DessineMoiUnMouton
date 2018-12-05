@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Galerie{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="jumbotron">
+            <div class="container">
+                <h1 class="display-3 text-warning">Galerie</h1>
+                <p>
+                    This is a template for a simple marketing or informational website.
+                    It includes a large callout called a jumbotron and three supporting
+                    pieces of content. Use it as a starting point to create something more unique
+                    This is a template for a simple marketing or informational website.
+                </p>
+            </div>
+        </div>
+        <div class="container">
+            <div class="card-deck">
+                {% for artwork in artworks %}
+                    <div class="col-4">
+
+                        <div class="card border-primary mb-3">
+                            <img class="card-img-top" src="{{ artwork.img }}" alt="{{ artwork.title }}">
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+        <ul>
+            <li>Your controller at <code><a href="{{ 'src/Controller/ArtworkController.php'|file_link(0) }}">src/Controller/ArtworkController.php</a></code></li>
+            <li>Your template at <code><a href="{{ 'templates/artwork/index.html.twig'|file_link(0) }}">templates/artwork/index.html.twig</a></code></li>
+        </ul>
+        This friendly message is coming from:
+    </div>
+{% endblock %}

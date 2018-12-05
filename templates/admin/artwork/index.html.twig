@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+{% block title %}Admin{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h1>Gestion galeries</h1>
+        <div class="float-md-right">
+            <a class="btn btn-primary" href="#" >Nouveau</a>
+        </div>
+        <table class="table table-dark table-striped">
+            <thead>
+            <tr>
+                <th></th>
+                <th>Titre</th>
+                <th colspan="3"></th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for artwork in artworks %}
+                <tr>
+                    <td><img src="{{ artwork.img }}" width="150" height="200"></td>
+                    <td>{{ artwork.title}}</td>
+                    <td><a class="btn btn-warning" href="#" >Voir</a></td>
+                    <td><a class="btn btn-primary" href="#" >Editer</a></td>
+                    <td><a class="btn btn-danger" href="#" >Sup</a></td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

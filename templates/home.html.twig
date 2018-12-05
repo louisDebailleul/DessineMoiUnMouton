@@ -1,0 +1,111 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Dessine Moi Un Mouton{% endblock %}
+
+{% block body %}
+    <div style="height: 538px";>
+        <div class="parallax-container" data-parallax="scroll" data-position="top" data-bleed="10" data-image-src="{{ asset('/img/header1.jpg') }}" data-natural-width="1400" data-natural-height="200" style="height: 700px;">
+            <div class="header-center">
+        <h1 class="display-3 text-uppercase text-warning">Bienvenu sur Dessine Moi Un Mouton</h1>
+        <p>
+            This is a template for a simple marketing or informational website.
+            It includes a large callout called a jumbotron and three supporting
+            pieces of content. Use it as a starting point to create something more unique
+            This is a template for a simple marketing or informational website.
+            It includes a large callout called a jumbotron and three supporting
+            pieces of content. Use it as a starting point to create something more unique
+            This is a template for a simple marketing or informational website.
+            It includes a large callout called a jumbotron and three supporting pieces
+            of content. Use it as a starting point to create something more unique
+        </p>
+            </div>
+        </div>
+    </div>
+    {% if is_granted('ROLE_USER') == null %}
+    <div class="jumbotron">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading text-uppercase text-warning">Inscrivez Vous</h2>
+                </div>
+            </div>
+
+            <div class="row text-center">
+                <div class="col-lg-6">
+                    <img class="rounded-circle " src="https://picsum.photos/200/300/?random" alt="Generic placeholder image" width="140" height="140">
+                    <h2>Artiste</h2>
+                    <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p>
+                    <p><a class="btn  btn-outline-success" href="{{path('user.registration')}}" role="button">Inscription &raquo;</a></p>
+                </div><!-- /.col-lg-4 -->
+                <div class="col-lg-6">
+                    <img class="rounded-circle text-center" src="https://picsum.photos/200/300/?random" alt="Generic placeholder image" width="140" height="140">
+                    <h2 class="text-center">Visiteur</h2>
+                    <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p>
+                    <p><a class="btn btn-outline-success" href="{{path('user.registration')}}" role="button">Inscription &raquo;</a></p>
+                </div><!-- /.col-lg-4 -->
+            </div>
+        </div>
+    </div>
+
+<div style="height: 200px";>
+    <div class="parallax-container" data-parallax="scroll" data-position="top" data-bleed="10" data-image-src="{{ asset('/img/header1.jpg') }}" data-natural-width="1400" data-natural-height="200" style="height: 700px;"></div>
+</div>
+    {% endif %}
+    <section class="jumbotron" id="portfolio">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading text-uppercase text-warning">Portfolios</h2>
+                    <h3 class="section-subheading text-muted">Liste des portefolios des artistes .</h3>
+                </div>
+            </div>
+            <div class="row text-center">
+            {% for artist in artists %}
+                <div class="col-md-4 col-sm-6 ">
+                    {{ artist.slug  }}
+                    <a class="portfolio-link" data-toggle="modal" href="{{ path('artist.show' , {id: artist.id } ) }}">
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content">
+                                <i class="fas fa-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img class="rounded-circle" src="{{ artist.photo }}" alt="">
+                    </a>
+                    <div class="portfolio-caption">
+                        <h4>{{ artist.firstname }}</h4>
+                        <p class="text-muted">{{ artist.description }}</p>
+                    </div>
+                </div>
+            {% endfor %}
+            </div>
+        </div>
+    </section>
+    <div style="height: 200px";>
+    <div class="parallax-container" data-parallax="scroll" data-position="top" data-bleed="10" data-image-src="{{ asset('/img/header2.jpg') }}" data-natural-width="1400" data-natural-height="900" style="height: 700px;"></div>
+    </div>
+    <section class="jumbotron" id="portfolio">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading text-uppercase text-warning">Galeries</h2>
+                    <h3 class="section-subheading text-muted">Liste des portefolios des artistes .</h3>
+                </div>
+            </div>
+            <div class="row text-center">
+            {% for artwork in artworks %}
+                <div class="col-md-4 col-sm-6 ">
+                    <a class="portfolio-link" data-toggle="modal" href="{{ path('artwork.show' , {id: artwork.id }) }}">
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content">
+                                <i class="fas fa-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img class="img-fluid" src="{{ artwork.img }}" alt="">
+                    </a>
+               </div>
+               {% endfor %}
+            </div>
+        </div>
+    </section>
+{% endblock %}

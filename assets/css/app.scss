@@ -1,0 +1,43 @@
+$primary: #428bca;
+$secondary: #6c757d;
+$success: #28a745;
+$danger: #dc3545;
+$warning: #ffc107;
+$info: #17a2c6;
+$dark: #212529;
+$white:#e9ecef;
+
+
+.header-center{
+  position: relative;
+  top: 63px;
+  width: 49%;
+  margin: 0 auto;
+  color: #fff;
+  font-size: 20px;
+}
+.form-signin {
+  width: 100%;
+  max-width: 390px;
+  padding: 15px;
+  margin: auto;
+  background: #212529;
+  color: $warning;
+}
+.center-card{
+  padding-top: 323px;
+  padding-bottom: 439px;
+  height: 500px;
+}
+.background-co{
+  background-image: url('/img/background-co.jpg');
+  height: 850px;
+}
+#contact{
+  background-image: url("https://svgsilh.com/svg_v2/158674.svg") ;
+  background-color: $dark;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 280px 0;
+}
+@import "~bootstrap/scss/bootstrap";

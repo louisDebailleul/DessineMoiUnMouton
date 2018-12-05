@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Artistes{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="jumbotron">
+            <div class="container">
+                <h1 class="display-3 text-warning">Artiste</h1>
+                <p>
+                    This is a template for a simple marketing or informational website.
+                    It includes a large callout called a jumbotron and three supporting
+                    pieces of content. Use it as a starting point to create something more unique
+                    This is a template for a simple marketing or informational website.
+                </p>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row flex">
+                {% for artist in artists %}
+                    <div class="col-3">
+                        <div class="card">
+                            <img class="card-img-top" src="{{ artist.photo }}" alt="{{ artist.firstname }}">
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <a href="{{ path("artist.show",{id : artist.id }) }}"> {{ artist.firstname }}</a>
+                                </h5>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

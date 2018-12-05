@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+{% block title %}Admin{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h1>Admin Artistes</h1>
+        <div class="Gestion des Categories">
+            <a class="btn btn-primary" href="#" >Nouveau</a>
+        </div>
+        <table class="table table-dark table-striped">
+            <thead>
+            <tr>
+                <th></th>
+                <th>Titre</th>
+                <th colspan="3"></th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for category in categories %}
+                <tr>
+                    <td>{{ category.title }}</td>
+                    <td><a class="btn btn-warning" href="#" >Voir</a></td>
+                    <td><a class="btn btn-primary" href="#" >Editer</a></td>
+                    <td><a class="btn btn-danger" href="#" >Sup</a></td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

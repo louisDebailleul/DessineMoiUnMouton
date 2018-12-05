@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+{% block title artist.firstname %}
+
+
+{% block body %}
+    <div style="height: 400px";>
+        <div class="parallax-container" data-parallax="scroll" data-position="top" data-bleed="10" data-image-src="{{ asset('/img/header1.jpg') }}" data-natural-width="1400" data-natural-height="200" style="height: 700px;"></div>
+    </div>
+    <div class="" style="margin-bottom: -101px;">
+        <img style="border-radius: 200px;" src="{{ artist.photo }}" class="rounded mx-auto d-block" alt="...">
+    </div>
+
+    <div class="jumbotron">
+        <h1>{{ artist.firstname }}</h1>
+        <p>{{ artist.description }}</p>
+    </div>
+
+    <div class="jumbotron">
+        <h2>Mes Projets</h2>
+        <p>{{ artist.description }}</p>
+    </div>
+
+{% endblock %}
